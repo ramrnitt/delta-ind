@@ -7,7 +7,7 @@ long int fact(int v)
     return 1;
   else
     return(v*fact(v-1));
-  }
+}
 void main()
 {
   int var;
@@ -15,4 +15,4 @@ void main()
   cin>>var;
   fact(var);
   getch();
-  }
+}
