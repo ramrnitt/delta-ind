@@ -13,6 +13,6 @@ void main()
   int var;
   cout<<"enter to calculate factorial:";
   cin>>var;
-  fact(var);
+  cout<<fact(var);
   getch();
 }
