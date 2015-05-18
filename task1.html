@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Task1</title>
+	
+</head>
+<body>
+	<h1>Click on the buttons to change color</h1>
+	<script>
+		var count=1;
+		function setcolor(button,color){
+			var chng=document.getElementById(button);
+			if(count==0){
+				chng.style.backgroundColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+				count=1;
+			}
+			else{
+				chng.style.backgroundColor='#'+Math.floor(Math.random()*16777215).toString(16);
+				count=0;
+			}
+
+		}
+		</script>
+
+		<style>
+
+		body{
+			text-align: center;
+			background: url("http://ga-dash.s3.amazonaws.com/production/assets/anna-bg.png");
+			background-size: cover;
+			background-position:centre;
+		}
+		h1{
+			color: white;
+			font-size: 72px;
+			font-style: helvetica;
+
+		}
+		input[id="button"]{
+			background:red;
+			padding:20px;
+			padding-right: 100px;
+		}
+		input[id="button1"]{
+			background:blue;
+			padding:20px;
+			padding-right: 100px;
+		}
+
+		</style>
+	<input type="button" id="button" onclick="setcolor('button1','#FF0000')"/> 
+	
+	<input type="button" id="button1" onclick="setcolor('button','#0000FF')"/> 
+	</body>
+	</html>
