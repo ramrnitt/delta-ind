@@ -5,9 +5,10 @@
 <head>
 <body>
 	<div id="input">
-		<p>Enter a value to plot graph..</p>
-		<input type="number" id="inp" placeholder="0-100 units"></input>
+		<p id="t">Enter a value to plot graph..</p>
+		<input type="text" id="inp" placeholder="0-100 units"></input>
 		<button type="button" id="plot" onclick="plotrect()">Plot</button>
+		<button type="button" id="reset" value="reset" onclick="resetcnv()">Reset</button>
 	</div>
 	<div id="cnv">
 		<canvas id="main"></canvas>
@@ -52,15 +53,33 @@
 </style>
 <script type="text/javascript">
 	var n=1;
+	var c=document.getElementById("main");
+	var ctx=c.getContext("2d");
 	function plotrect(){
 		var val=document.getElementById("inp").value;
-		var c=document.getElementById("main");
-		var ctx=c.getContext("2d");
+		
+		if(val>=0 && val<=100){
+
+
 		ctx.beginPath();
 		ctx.fillStyle='#'+Math.floor(Math.random()*16777215).toString(16);
 		ctx.rect(n*12,125-val,10,val);
 		ctx.fill();
 		n+=1;
+		document.getElementById("t").innerHTML="Enter a value to plot graph..";
+		document.getElementById("inp").value="";
+		}
+		else
+		{
+			document.getElementById("t").innerHTML="Enter valid value(0-100) to plot graph";
+			document.getElementById("inp").value="";
+		}
+	}
+	function resetcnv(){
+		   
+		ctx.clearRect(0,0,c.width,c.height);
+		n=1;
+		
 	}
 </script>
 </body>
