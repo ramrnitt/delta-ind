@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Graphs</title>
+<head>
+<body>
+	<div id="input">
+		<p>Enter a value to plot graph..</p>
+		<input type="number" id="inp" placeholder="0-100 units"></input>
+		<button type="button" id="plot" onclick="plotrect()">Plot</button>
+	</div>
+	<div id="cnv">
+		<canvas id="main"></canvas>
+	</div>
+<style>
+	body{
+		background: url("http://ga-dash.s3.amazonaws.com/production/assets/anna-bg.png");
+		background-size: cover;
+		background-position:centre;
+	}
+	div[id="cnvs"]{
+		padding-top: 100px;
+	}
+	canvas{
+		background: white;
+		border: 5px solid;
+		border-color: red;
+		width: 99%;
+		height:400px;
+	}
+	input{
+		padding: 10px;
+
+	}
+	div[id="input"]{
+		color: white;
+		font-size: 50px;
+		padding-bottom: 0px;
+	}
+	
+	button{
+		font-size: 20px;
+		color: white;
+		background: gray;
+		border-radius: 5px;
+	}
+	::-webkit-input-placeholder {
+  		 color: gray;
+  		 font-size: 15px;
+  		 font-weight: 5px;
+}
+</style>
+<script type="text/javascript">
+	var n=1;
+	function plotrect(){
+		var val=document.getElementById("inp").value;
+		var c=document.getElementById("main");
+		var ctx=c.getContext("2d");
+		ctx.beginPath();
+		ctx.fillStyle='#'+Math.floor(Math.random()*16777215).toString(16);
+		ctx.rect(n*12,125-val,10,val);
+		ctx.fill();
+		n+=1;
+	}
+</script>
+</body>
+</html>
